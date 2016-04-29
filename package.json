@@ -1,0 +1,18 @@
+{
+  "name": "survey-bot",
+  "description":"TOM PUT DESCRIPTION HERE",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "bundle exec ruby bot.rb",
+    "install": "bundle install"
+  },
+  "keywords": [
+    "green-bot",
+    "greenbot",
+    "bot",
+    "bashbot"
+  ],
+  "author": "Thomas Howe",
+  "license": "MIT",
+  "version": "0.1.0"
+}
