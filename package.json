@@ -1,6 +1,6 @@
 {
   "name": "survey-bot",
-  "description":"TOM PUT DESCRIPTION HERE",
+  "description":"A simple survey bot, asks questions and remembers answers",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "bundle exec ruby bot.rb",

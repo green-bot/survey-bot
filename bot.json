@@ -14,7 +14,57 @@
     },
     {
       "name": "NAME_PROMPT",
-      "value": "NAME_PROMPT",
+      "value": "May I please have your name?",
+      "type": "text"
+    },
+    {
+      "name": "QUESTION_1",
+      "value": "Change me to change question 1, delete me to supress",
+      "type": "text"
+    },
+    {
+      "name": "QUESTION_2",
+      "value": "Change me to change question 2, delete me to supress",
+      "type": "text"
+    },
+    {
+      "name": "QUESTION_3",
+      "value": "Change me to change question 3, delete me to supress",
+      "type": "text"
+    },
+    {
+      "name": "QUESTION_4",
+      "value": "Change me to change question 4, delete me to supress",
+      "type": "text"
+    },
+    {
+      "name": "QUESTION_5",
+      "value": "Change me to change question 5, delete me to supress",
+      "type": "text"
+    },
+    {
+      "name": "QUESTION_6",
+      "value": "Change me to change question 6, delete me to supress",
+      "type": "text"
+    },
+    {
+      "name": "QUESTION_7",
+      "value": "Change me to change question 7, delete me to supress",
+      "type": "text"
+    },
+    {
+      "name": "QUESTION_8",
+      "value": "Change me to change question 8, delete me to supress",
+      "type": "text"
+    },
+    {
+      "name": "QUESTION_9",
+      "value": "Change me to change question 9, delete me to supress",
+      "type": "text"
+    },
+    {
+      "name": "QUESTION_10",
+      "value": "Change me to change question 10, delete me to supress",
       "type": "text"
     },
     {
@@ -23,10 +73,10 @@
       "type": "text"
     }
   ],
-  "desc": "TOM PUT DESCRIPTION HERE",
+  "desc": "Asks a series of questions, storing the answers.",
   "icon_class": "information",
   "name": "survey-bot",
   "owner_cmd": "",
-  "short_desc": "A simple quiz bot, asks questions and remembers answers",
+  "short_desc": "A simple survey bot, asks questions and remembers answers",
   "repo_link": "git@github.com/green-bot/survey-bot.git"
 }]

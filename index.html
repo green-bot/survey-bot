@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>bot.rb</title>
+  <title>survey bot</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -12,12 +12,6 @@
     <div id="background"></div>
     
     <ul class="sections">
-        
-          <li id="title">
-              <div class="annotation">
-                  <h1>bot.rb</h1>
-              </div>
-          </li>
         
         
         
@@ -41,23 +35,131 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              
+              <h1 id="survey-bot">survey bot</h1>
+<h1 id="summary-and-configuration">Summary and Configuration</h1>
+<p>This bot asks up to ten questions of the inbound messager, then stores
+these answers.  Questions are not validated, and do not trigger any
+particular behaviors.  If a question is blank, it is not asked.</p>
+<h1 id="installation">Installation</h1>
+<p>This bot can be installed on any GreenBot server through the web UI, or
+by through the command line at the greenbot-core root with a
+a ‘npm install survey-bot’</p>
+<p>This bot requires a ruby installation, 2.0 or older</p>
+<h2 id="annoated-bot-code-full-source-in-repo">Annoated Bot Code - Full source in repo</h2>
+
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">require</span> <span class="hljs-string">"./lib/greenbot.rb"</span>
-tell ENV[<span class="hljs-string">'PROMPT_1'</span>]
-tell ENV[<span class="hljs-string">'PROMPT_2'</span>]
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">require</span> <span class="hljs-string">'./lib/greenbot.rb'</span> <span class="hljs-comment"># ./lib/greenbot.rb contains helper libraries</span>
 
-name = confirmed_gets(ENV[<span class="hljs-string">'NAME_PROMPT'</span>]) <span class="hljs-keyword">if</span> ENV[<span class="hljs-string">'NAME_PROMPT'</span>]
-prompts = <span class="hljs-string">%w( DATA_PROMPT_1 DATA_PROMPT_2 DATA_PROMPT_3 DATA_PROMPT_4 DATA_PROMPT_5 DATA_PROMPT_6 DATA_PROMPT_7 DATA_PROMPT_8 DATA_PROMPT_9 DATA_PROMPT_10 )</span>
-data_prompts = []
-prompts.each <span class="hljs-keyword">do</span> <span class="hljs-params">|p|</span>
-  <span class="hljs-keyword">if</span> ENV[p].size &gt; <span class="hljs-number">0</span>
-    answer = ask(ENV[p])
-    answer.remember(p)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle</span><span class="hljs-params">(prompt, fieldName= <span class="hljs-keyword">nil</span>)</span></span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>If there’s nothing to tell or ask, get out of here.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">unless</span> prompt
+
+  <span class="hljs-keyword">if</span> fieldName.<span class="hljs-keyword">nil</span>?</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>No field name, so just say it.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    tell prompt <span class="hljs-keyword">if</span> prompt
+  <span class="hljs-keyword">else</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>If there’s a field name, then we are asking for something.
+Ask and remember the answer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    answer = ask prompt
+    answer.remember(fieldName)
   <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
-tell ENV[<span class="hljs-string">'SIGNATURE'</span>]</pre></div></div>
+<span class="hljs-keyword">end</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Ask the first two prompts.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>handle ENV[<span class="hljs-string">'PROMPT_1'</span>]
+handle ENV[<span class="hljs-string">'PROMPT_2'</span>]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Ask the guest for their name, if configured
+Don’t use handle because we want to confirm their name</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">if</span> ENV[<span class="hljs-string">'NAME_PROMPT'</span>]
+  name = confirmed_gets(ENV[<span class="hljs-string">'NAME_PROMPT'</span>])
+  name.remember(<span class="hljs-string">'name'</span>)
+<span class="hljs-keyword">end</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>For each of the ten possible questions, ask them if they are configured
+and save the answer</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-string">%w( QUESTION_1 QUESTION_2 QUESTION_3
+    QUESTION_4 QUESTION_5 QUESTION_6
+    QUESTION_7 QUESTION_8 QUESTION_9
+    QUESTION_10 )</span>.each { |p| handle(ENV[p], p) }
+
+handle ENV[<span class="hljs-string">'SIGNATURE'</span>]</pre></div></div>
             
         </li>
         
