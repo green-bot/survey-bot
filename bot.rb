@@ -6,6 +6,7 @@
 # these answers.  Questions are not validated, and do not trigger any
 # particular behaviors.  If a question is blank, it is not asked.
 #
+# [Survey bot flow chart](https://cloud.githubusercontent.com/assets/9991/15373000/3c6d6012-1d11-11e6-8a36-902716d06985.png)
 ## Installation
 # This bot can be installed on any GreenBot server through the web UI, or
 # by through the command line at the greenbot-core root with a
