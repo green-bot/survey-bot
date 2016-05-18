@@ -1,6 +1,6 @@
 {
   "name": "survey-bot",
-  "description":"A simple survey bot, asks questions and remembers answers",
+  "description": "A simple survey bot, asks questions and remembers answers",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "bundle exec ruby bot.rb",
@@ -14,5 +14,5 @@
   ],
   "author": "Thomas Howe",
   "license": "MIT",
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
